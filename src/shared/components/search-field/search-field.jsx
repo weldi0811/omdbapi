@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getMoviesByTitle } from '../../../redux/actions/list.action';
 
-const SearchField = () => {
-  const [title, setTitle] = useState('');
-
+const SearchField = ({ title, setTitle }) => {
   const dispatch = useDispatch();
 
   const onSearchFieldChange = value => {

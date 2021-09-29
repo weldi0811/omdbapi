@@ -27,7 +27,6 @@ export const getMovieError = error => {
 };
 
 export const getMovieByTitle = title => {
-  console.log(title);
   return {
     type: GET_MOVIES_BY_TITLE,
   };
