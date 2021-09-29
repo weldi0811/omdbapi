@@ -35,7 +35,7 @@ const MovieCard = ({ movie }) => {
         </div>
         <div className="flex flex-row mx-2">
           <span className="text-sm">{movie.Type} | </span>
-          <p className="text-sm">{movie.Year}</p>
+          <p className="ml-2 text-sm">{movie.Year}</p>
         </div>
       </div>
       {isShowPoster && <Poster image={posterImage} closePoster={closePoster} />}
