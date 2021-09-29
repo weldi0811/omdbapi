@@ -8,12 +8,12 @@ const MovieList = () => {
   const dispatch = useDispatch();
   const movieList = useSelector(state => state.movieList.movieList) || [];
   const anchor = useRef();
+  const [title, setTitle] = useState('');
   const [fetchPerPage, setFetchPerPage] = useState(5);
   const [page, setPage] = useState(1);
-  const [title, setTitle] = useState('');
 
   useEffect(() => {
-    dispatch(getMoviesByTitle(title, page));
+    dispatch(getMoviesByTitle({ title, page, shouldResetResults: false }));
 
     window.addEventListener('scroll', () => {
       const scrollable =
@@ -25,7 +25,7 @@ const MovieList = () => {
         setPage(prev => prev + 1);
       }
     });
-  }, [dispatch, title, page]);
+  }, [dispatch, page]);
 
   return (
     <>

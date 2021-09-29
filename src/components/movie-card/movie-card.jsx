@@ -14,8 +14,6 @@ const MovieCard = ({ movie }) => {
     setIsShowPoster(false);
   };
 
-  console.log(movie);
-
   return (
     <div data-testid="cardMovies">
       <div className="mx-auto my-10 w-full">

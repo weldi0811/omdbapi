@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Ratings from '../movie-ratings';
 
 const MovieDetail = ({ movieData }) => {
-  console.log(movieData);
   return (
     <div>
       <main className="px-4">
