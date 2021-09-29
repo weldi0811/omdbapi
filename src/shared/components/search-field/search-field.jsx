@@ -18,7 +18,7 @@ const SearchField = ({ title, setTitle }) => {
         placeholder="Search"
       />
       <button
-        className="border border-black rounded-xl ml-8  px-5 py-5 mt-5"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-xl ml-8  px-5 py-5 mt-5"
         onClick={() => {
           onSearch(title);
         }}
