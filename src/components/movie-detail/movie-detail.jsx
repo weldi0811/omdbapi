@@ -1,12 +1,31 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Ratings from '../movie-ratings';
+import { MOVIE_DATA_DEFAULT_VALUES } from './movie-detail.const';
 
-const MovieDetail = ({ movieData }) => {
+const MovieDetail = ({ id }) => {
+  const [movieData, setMovieData] = useState(MOVIE_DATA_DEFAULT_VALUES);
   const history = useHistory();
 
-  console.log(movieData);
+  const getMovieDetail = () => {
+    const url = `${process.env.REACT_APP_HOST_API}?apikey=${process.env.REACT_APP_APIKEY}&i=${id}`;
+    axios
+      .get(url)
+      .then(response => {
+        setMovieData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getMovieDetail();
+  }, []);
+
   return (
-    <div>
+    <div data-testid="MovieDetail">
       <main className="px-4">
         <div className="py-10 md:h-screen">
           <button
