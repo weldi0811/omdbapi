@@ -27,6 +27,7 @@ const MovieCard = ({ movie }) => {
           data-testid="ImgPoster"
         />
         <div
+          className="cursor-pointer"
           onClick={() => {
             history.push(`/movie/${movie.imdbID}`);
           }}>

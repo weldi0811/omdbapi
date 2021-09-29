@@ -36,15 +36,18 @@ const MovieDetail = ({ id }) => {
             Back
           </button>
 
-          <span className="text-xl font-bold"></span>
+          <div className="flex align-center justify-center mt-5">
+            <h1 className=" font-bold text-2xl my-1 align-center">
+              {movieData.Title}
+            </h1>
+          </div>
           <div className="flex flex-col items-center my-10 md:flex-row ">
             <img
               src={movieData.Poster}
               alt={movieData.Title}
-              className="h-96 w-80 mx-auto object-cover rounded-xl"
+              className="h-100 w-80 mx-auto object-cover rounded-xl"
             />
             <div className="flex flex-col md:ml-4 md:w-1/2">
-              <h1 className="font-bold text-2xl my-1">{movieData.Title}</h1>
               <div className="flex flex-wrap my-1">
                 <h1 className="font-bold text-base">Actors:</h1>
                 <span className="font-normal md:mx-1">{movieData.Actors}</span>
