@@ -18,7 +18,7 @@ const listReducer = (state = initialState, action) => {
       };
     case GET_MOVIES_SUCCESS:
       return {
-        movieList: action.result,
+        movieList: [...state.movieList, ...action.payload],
         isLoading: false,
       };
 

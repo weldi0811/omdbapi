@@ -40,23 +40,31 @@ export const getMovieList = () => {
       .get(initialUrl)
       .then(response =>
         !!response.data.Search
-          ? dispatch(getMovieSuccess(response.data.Search))
+          ? dispatch({
+              type: GET_MOVIES_SUCCESS,
+              payload: response.data.Search,
+            })
           : dispatch(getMovieSuccess([])),
       )
       .catch(error => dispatch(getMovieError(error)));
   };
 };
 
-export const getMoviesByTitle = title => {
+export const getMoviesByTitle = (title, page = 1) => {
   return function (dispatch) {
-    const url = `${process.env.REACT_APP_HOST_API}?apikey=${process.env.REACT_APP_APIKEY}&s=${title}&page=1`;
-    dispatch(getMovieByTitle(title));
+    const url = `${process.env.REACT_APP_HOST_API}?apikey=${process.env.REACT_APP_APIKEY}&s=${title}&page=${page}`;
     axios
       .get(url)
       .then(response =>
         !!response.data.Search
-          ? dispatch(getMovieSuccess(response.data.Search))
-          : dispatch(getMovieSuccess([])),
+          ? dispatch({
+              type: GET_MOVIES_SUCCESS,
+              payload: response.data.Search,
+            })
+          : dispatch({
+              type: GET_MOVIES_SUCCESS,
+              payload: [],
+            }),
       )
       .catch(error => dispatch(getMovieError(error)));
   };

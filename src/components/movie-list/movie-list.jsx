@@ -13,18 +13,19 @@ const MovieList = () => {
   const [title, setTitle] = useState('');
 
   useEffect(() => {
-    dispatch(getMoviesByTitle(title));
+    dispatch(getMoviesByTitle(title, page));
 
     window.addEventListener('scroll', () => {
       const scrollable =
         document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = window.scrollY;
+
       if (scrolled === scrollable) {
         setFetchPerPage(prev => prev + 5);
         setPage(prev => prev + 1);
       }
     });
-  }, [dispatch]);
+  }, [dispatch, title, page]);
 
   return (
     <>
@@ -34,7 +35,6 @@ const MovieList = () => {
       <div>
         {movieList.length > 0 &&
           movieList.slice(0, fetchPerPage).map((item, index) => {
-            console.log(movieList.slice(0, 5));
             return <MovieCard movie={item} key={index} />;
           })}
       </div>
