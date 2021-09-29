@@ -1,4 +1,5 @@
 import {
+  GET_MOVIES_BY_TITLE,
   GET_MOVIES_LIST,
   GET_MOVIES_SUCCESS,
 } from '../../constants/movieList.const';
@@ -16,6 +17,12 @@ const listReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case GET_MOVIES_SUCCESS:
+      return {
+        movieList: action.result,
+        isLoading: false,
+      };
+
+    case GET_MOVIES_BY_TITLE:
       return {
         movieList: action.result,
         isLoading: false,

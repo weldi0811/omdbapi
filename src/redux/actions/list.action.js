@@ -2,13 +2,13 @@ import axios from 'axios';
 import {
   GET_MOVIES_BY_TITLE,
   GET_MOVIES_ERROR,
-  GET_MOVIES_LIST_ACTION,
+  GET_MOVIES_LIST,
   GET_MOVIES_SUCCESS,
 } from '../../constants/movieList.const';
 
 export const getMovie = () => {
   return {
-    type: GET_MOVIES_LIST_ACTION,
+    type: GET_MOVIES_LIST,
   };
 };
 
@@ -27,6 +27,7 @@ export const getMovieError = error => {
 };
 
 export const getMovieByTitle = title => {
+  console.log(title);
   return {
     type: GET_MOVIES_BY_TITLE,
   };
@@ -50,7 +51,6 @@ export const getMovieList = () => {
 export const getMoviesByTitle = title => {
   return function (dispatch) {
     const url = `${process.env.REACT_APP_HOST_API}?apikey=${process.env.REACT_APP_APIKEY}&s=${title}&page=1`;
-
     dispatch(getMovieByTitle(title));
     axios
       .get(url)
