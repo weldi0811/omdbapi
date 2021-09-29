@@ -9,7 +9,9 @@ const SearchField = ({ title, setTitle }) => {
   };
 
   return (
-    <div className="flex justify-center align-center">
+    <div
+      className="flex justify-center align-center"
+      data-testid="TxtSearchField">
       <input
         className="text-black w-full border border-green-600 rounded-xl px-5 py-5 mt-5 focus:outline-none"
         type="text"
@@ -22,6 +24,7 @@ const SearchField = ({ title, setTitle }) => {
         onClick={() => {
           onSearch(title);
         }}
+        data-testid="BtnSearch"
         type="Button">
         Search
       </button>
