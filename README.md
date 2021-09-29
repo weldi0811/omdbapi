@@ -1,6 +1,4 @@
-How to run this project:
-
-Clone this repository: git clone https://github.com/weldi0811/omdbapi.git
+Clone the repository git clone https://github.com/weldi0811/omdbapi.git
 
 redirect to the folder cd ombdapi
 
